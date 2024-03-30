@@ -1,2 +1,2 @@
 # diabolopi
-flat printing parametric Raspberry Pi cases
+flat 3D printing parametric Raspberry Pi cases
