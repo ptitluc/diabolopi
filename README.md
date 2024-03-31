@@ -1,5 +1,5 @@
 # diabolopi
-customizable Raspberry Pi cases, based on [Diabolox](https://github.com/ptitluc/diabolobox).
+customizable Raspberry Pi cases, based on [Diabolobox](https://github.com/ptitluc/diabolobox).
 
 > **WARNING**
 This is **work in progress** and requires more testing and documentation.
