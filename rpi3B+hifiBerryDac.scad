@@ -45,13 +45,13 @@ pcb_th = 1.4;
 pcb_top = ph + pcb_th;
 
 //                          left panel connectors positions
-//               | offset | specs | corr. | half shape| top pcb  | corr.
-power_plug_pos = [  off   + 10.6  +   0.25   ,   3/2     + pcb_top  +   0  ];
-hdmi_pos       = [  off   +  32   +   0.25   ,   6.1/2   + pcb_top  +   0  ];
-audio_pos      = [  off   + 53    +   0.75 ,   3.25    + pcb_top  -  0.5 ];
-jack_hb_pos    = [  off   +  16.75   +   0.25 ,   10/2    + pcb_top  + 8.75 ];
-rca_L_hb_pos = [  off   + 34    +   0.25   ,   9/2    + pcb_top  + 14.75 ];
-rca_R_hb_pos = [  off   + 51.17    +   0.25   ,   9/2    + pcb_top  + 14.75 ];
+//               | offset | specs |  corr. | half shape | top pcb  | corr.
+power_plug_pos = [  off   + 10.6  +   0.25 ,    3/2     + pcb_top  +   0   ];
+hdmi_pos       = [  off   + 32    +   0.25 ,    6.1/2   + pcb_top  +   0   ];
+audio_pos      = [  off   + 53    +   0.75 ,    3.25    + pcb_top  -  0.5  ];
+jack_hb_pos    = [  off   + 16.75 +   0.25 ,   10/2     + pcb_top  + 8.75  ];
+rca_L_hb_pos   = [  off   + 34    +   0.25 ,    9/2     + pcb_top  + 14.75 ];
+rca_R_hb_pos   = [  off   + 51.17 +   0.25 ,    9/2     + pcb_top  + 14.75 ];
 
 if (flat == false && show_board == true) {
   rotate([0, 0, 180])

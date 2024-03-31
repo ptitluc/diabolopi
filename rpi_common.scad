@@ -1,4 +1,18 @@
-//include <diabolobox.scad>;
+/* This file is part of Diabolopi - customizable raspberry pi cases
+Copyright (C) 2024  Luc Milland
+
+Diabolopi is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation, either version 3
+of the License, or (at your option) any later version.
+
+Diabolopi is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Diabolopi. If not, see <https://www.gnu.org/licenses/> */
 
 module rpi_sd_card_slot(h=5.15, depth=6) {
   dia = 17;
@@ -23,7 +37,7 @@ module bottom_sd_card(off, od, ow) {
 }
 
 module sd_card_guard(off, od, ow, th) {
-  translate([ow/2 - 9, od - off - 3, th]) cube([18, 3, 1.4]);
+  translate([ow/2 - 9, od - off - 4, th]) cube([18, 4, 1.4]);
 }
 
 module panel_sd_card(off, ow, dh, h) {

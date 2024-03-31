@@ -1,13 +1,29 @@
-include <diabolobox.scad>;
+/* This file is part of Diabolopi - customizable raspberry pi cases
+Copyright (C) 2024  Luc Milland
+
+Diabolopi is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation, either version 3
+of the License, or (at your option) any later version.
+
+Diabolopi is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Diabolopi. If not, see <https://www.gnu.org/licenses/> */
+
+include <diabolobox/diabolobox.scad>;
 use <conn_shapes.scad>;
 use <rpi_common.scad>;
 use <rpi/misc_boards.scad>;
 
 /* [Dimensions] */
-height = 16; // 0.1
-thickness = 2.4; // 0.1
-edge_offset = 1.5;  // 0.1
-corner_radius = 1; // 0.1
+height = 16;          // 0.1
+thickness = 2.4;      // 0.1
+edge_offset = 1.5;    // 0.1
+corner_radius = 1;    // 0.1
 fit_clearance = 0.3; // 0.05
 
 /* [View] */
@@ -23,18 +39,16 @@ show_board = true;
 explode_distance = 0.0; // [0:0.5:20]
 
 /* [Color] */
-red = 0.1; // [0:0.01:1]
-green = 0.2; // [0:0.01:1]
-blue = 0.3; // [0:0.01:1]
-alpha = 0.4; // [0:0.01:1]
-
+red = 0.8;    // [0:0.01:1]
+green = 0.75; // [0:0.01:1]
+blue = 0.1;   // [0:0.01:1]
+alpha = 1;    // [0:0.01:1]
 
 module __Customizer_Limit__ () {}
 
-inner_dim = true;
-width = 56;
-depth = 68;
-
+inner_dim = true;  // case size based on the pcb size
+width = 56.5;      // length on X axis + 0.5mm fit clearance
+depth = 68.5;      // length on Y axis + 0.5mm fit clearance
 
 pillar_dia = 6;
 pillar_bore_dia = 2.7;

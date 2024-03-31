@@ -1,14 +1,30 @@
+/* This file is part of Diabolopi - customizable raspberry pi cases
+Copyright (C) 2024  Luc Milland
+
+Diabolopi is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation, either version 3
+of the License, or (at your option) any later version.
+
+Diabolopi is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Diabolopi. If not, see <https://www.gnu.org/licenses/> */
+
 include <diabolobox/diabolobox.scad>;
 use <conn_shapes.scad>;
 use <rpi_common.scad>;
 use <rpi/misc_boards.scad>;
 
 /* [Dimensions] */
-height = 21;            // 0.1
-thickness = 2.4;        // 0.1
-edge_offset = 1.5;      // 0.1
-corner_radius = 1;      // 0.1
-fit_clearance = 0.3;    // 0.05
+height = 21;         // 0.1
+thickness = 2.4;     // 0.1
+edge_offset = 1.5;   // 0.1
+corner_radius = 1;   // 0.1
+fit_clearance = 0.3; // 0.05
 
 /* [View] */
 flat = false;  
@@ -21,19 +37,19 @@ show_bottom = true;
 show_feet = true;
 show_board = true;
 explode_distance = 0.0; // [0:0.5:20]
+
 /* [Color] */
-red = 0.04; // [0:0.01:1]
+red = 0.04;   // [0:0.01:1]
 green = 0.51; // [0:0.01:1]
-blue = 1; // [0:0.01:1]
-alpha = 1; // [0:0.01:1]
+blue = 1;     // [0:0.01:1]
+alpha = 1;    // [0:0.01:1]
 
 module __Customizer_Limit__ () {}
 
-inner_dim  = true;      // are width, depth and height external or internal dimensions ?
-width  = 56;          // length on X axis
-depth  = 88.2;          // length on Y axis
+inner_dim  = true; // case size based on the pcb size
+width  = 56.5;     // length on X axis + 0.5mm fit clearance
+depth  = 88.7;     // length on Y axis + 0.5mm fit clearance
 
-  
 pillar_dia = 6;
 pillar_bore_dia = 2.7;
 pillar_height = 3;
@@ -60,9 +76,7 @@ if (flat == false && show_board == true) {
 visible_panels = [show_left, show_bottom, show_right, show_lid, show_back, show_front, show_feet];
 
 arrange(visible_panels) {
-
-////////// Left panel
-
+  /* left panel */
   diabolize_lr()
   difference() {
     db_panel("left_right");
@@ -73,8 +87,7 @@ arrange(visible_panels) {
       translate(audio_pos) audio();
     }
   }
-
-////////// Bottom
+  /* bottom */
   diabolize_bt()
   difference() {
     union() {
@@ -92,21 +105,15 @@ arrange(visible_panels) {
       translate([7.5 - od, -8, -0.1])
       text("▶diabolobox◀",7, "FreeMono:style=Bold", spacing=0.9);
   }
-
-/////////// right panel
- 
+  /* right panel */
   diabolize_lr() db_panel("left_right");
-  //
-  // lid
-  //
+  /* lid */
   diabolize_bt(bottom=false)
     difference() {
     db_panel("top_bottom");
     hex_vents();
   }
-  //
-  // back panel
-  //
+  /* back panel */
   difference() {
     diabolize_fb()
     difference() {
@@ -118,7 +125,7 @@ arrange(visible_panels) {
     // sd slot
     panel_sd_card(off, ow, dh, pcb_top);
   }
-  //USB side
+  /* front panel */
   diabolize_fb()
   difference() {
     db_panel("front_back");

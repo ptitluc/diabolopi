@@ -1,14 +1,29 @@
-include <diabolobox.scad>;
+/* This file is part of Diabolopi - customizable raspberry pi cases
+Copyright (C) 2024  Luc Milland
+
+Diabolopi is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation, either version 3
+of the License, or (at your option) any later version.
+
+Diabolopi is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Diabolopi. If not, see <https://www.gnu.org/licenses/> */
+
+include <diabolobox/diabolobox.scad>;
 use <conn_shapes.scad>;
 use <rpi_common.scad>;
-use <diabolo.scad>;
 use <rpi/misc_boards.scad>;
 
 /* [Dimensions] */
-height = 43; // 0.1
-thickness = 2.4; // 0.1
-edge_offset = 1.5;  // 0.1
-corner_radius = 1; // 0.1
+height = 43;         // 0.1
+thickness = 2.4;     // 0.1
+edge_offset = 1.5;   // 0.1
+corner_radius = 1;   // 0.1
 fit_clearance = 0.3; // 0.05
 
 /* [View] */
@@ -24,16 +39,16 @@ show_board = true;
 explode_distance = 0.0; // [0:0.5:20]
 
 /* [Color] */
-red = 0.66; // [0:0.01:1]
+red = 0.66;   // [0:0.01:1]
 green = 0.26; // [0:0.01:1]
-blue = 0.18; // [0:0.01:1]
-alpha = 1; // [0:0.01:1]
+blue = 0.18;  // [0:0.01:1]
+alpha = 1;    // [0:0.01:1]
 
 module __Customizer_Limit__ () {}
 
-inner_dim  = true;      // are width, depth and height external or internal dimensions ?
-width  = 56.5;          // length on X axis
-depth  = 88.7;          // length on Y axis
+inner_dim  = true; // case size based on the pcb size
+width  = 56.5;     // length on X axis + 0.5mm fit clearance
+depth  = 88.7;     // length on Y axis + 0.5mm fit clearance
 
 pillar_dia = 6;
 pillar_bore_dia = 5;
@@ -46,13 +61,13 @@ pcb_top = ph + pcb_th;
 
 //                          left panel connectors positions
 //               | offset | specs | corr. | half shape| top pcb  | corr.
-power_plug_pos = [  off   + 11.2  +  0.25 ,   3.5/2   + pcb_top +   0  ];
-u_hdmi_1_pos   = [  off   +  26   +  0.25 ,   3.5/2   + pcb_top +   0  ];
-u_hdmi_2_pos   = [  off   + 39.5  +  0.25 ,   3.5/2   + pcb_top +   0  ];
-audio_pos      = [  off   + 54    +  0.25 ,   3.25    + pcb_top +   0  ];
-jack_hb_pos    = [  off   + 16.75 +  0.25 ,  10/2     + pcb_top + 8.75 ];
-rca_L_hb_pos   = [  off   + 34    +  0.25 ,   9/2     + pcb_top+ 14.75 ];
-rca_R_hb_pos   = [  off   + 51.17 +  0.25 ,   9/2     + pcb_top+ 14.75 ];
+power_plug_pos = [  off   + 11.2  +  0.25 ,   3.5/2   + pcb_top +    0  ];
+u_hdmi_1_pos   = [  off   +  26   +  0.25 ,   3.5/2   + pcb_top +    0  ];
+u_hdmi_2_pos   = [  off   + 39.5  +  0.25 ,   3.5/2   + pcb_top +    0  ];
+audio_pos      = [  off   + 54    +  0.25 ,   3.25    + pcb_top +    0  ];
+jack_hb_pos    = [  off   + 16.75 +  0.25 ,  10/2     + pcb_top +  8.75 ];
+rca_L_hb_pos   = [  off   + 34    +  0.25 ,   9/2     + pcb_top + 14.75 ];
+rca_R_hb_pos   = [  off   + 51.17 +  0.25 ,   9/2     + pcb_top + 14.75 ];
 
 if (flat == false && show_board == true) {
   rotate([0, 0, 180])
