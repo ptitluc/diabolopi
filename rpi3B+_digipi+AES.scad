@@ -15,8 +15,8 @@ You should have received a copy of the GNU General Public License
 along with Diabolopi. If not, see <https://www.gnu.org/licenses/> */
 
 include <diabolobox/diabolobox.scad>;
-use <conn_shapes.scad>;
-use <rpi_common.scad>;
+use <utils/conn_shapes.scad>;
+use <utils/rpi_common.scad>;
 use <rpi/misc_boards.scad>;
 
 /* [Dimensions] */

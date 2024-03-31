@@ -1,6 +1,6 @@
 include <diabolobox.scad>;
-use <conn_shapes.scad>;
-use <rpi_common.scad>;
+use <utils/conn_shapes.scad>;
+use <utils/rpi_common.scad>;
 use <diabolo.scad>;
 use <rpi/misc_boards.scad>;
 
