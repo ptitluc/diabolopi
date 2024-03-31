@@ -82,7 +82,7 @@ if (flat == false && show_board == true) {
 visible_panels = [show_left, show_bottom, show_right, show_lid, show_back, show_front, show_feet];
 
 arrange(visible_panels) {
-  diabolize_lr()
+  diabolize_lr("left")
     difference() {
     db_panel("left_right");
     union() {
@@ -110,7 +110,7 @@ arrange(visible_panels) {
     mirror([0,1,0]) rotate([0, 0, 90]) translate([7.5 - od, -8, -0.1])
     text("▶diabolobox◀",7, "FreeMono:style=Bold", spacing=0.9);
   }
-  diabolize_lr() db_panel("left_right");
+  diabolize_lr("right") db_panel("left_right");
   diabolize_bt(bottom=false)
     difference() {
     db_panel("top_bottom");

@@ -77,7 +77,7 @@ visible_panels = [show_left, show_bottom, show_right, show_lid, show_back, show_
 
 arrange(visible_panels) {
   /* left panel */
-  diabolize_lr()
+  diabolize_lr("left")
   difference() {
     db_panel("left_right");
     union() {
@@ -106,7 +106,7 @@ arrange(visible_panels) {
       text("▶diabolobox◀",7, "FreeMono:style=Bold", spacing=0.9);
   }
   /* right panel */
-  diabolize_lr() db_panel("left_right");
+  diabolize_lr("right") db_panel("left_right");
   /* lid */
   diabolize_bt(bottom=false)
     difference() {
